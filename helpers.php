@@ -10,7 +10,7 @@
             }
         }
 
-        public static function getCoursesById($db) {
+        public static function getAllCourses($db) {
             $sql = " SELECT * FROM courses ";
             $courses = mysqli_query($db, $sql);
             $result = array();
@@ -22,8 +22,58 @@
             return $result;
         }
 
-        public static function getSubjectsById($db) {
+        public static function getAllSubjects($db) {
             $sql = " SELECT * FROM subjects ";
+            $subjects = mysqli_query($db, $sql);
+            $result = array();
+
+            if ($subjects && mysqli_num_rows($subjects) >= 1) {
+                $result = $subjects;
+            }
+
+            return $result;
+        }
+        
+        public static function getSubjectsById($db, $id) {
+            $sql = " SELECT * FROM subjects su ";
+            $sql .= "INNER JOIN student_in_subject st_su ON st_su.subject_id = su.id ";
+            $sql .= "WHERE st_su.student_id = $id ";
+            $subjects = mysqli_query($db, $sql);
+            $result = array();
+
+            if ($subjects && mysqli_num_rows($subjects) >= 1) {
+                $result = $subjects;
+            }
+
+            return $result;
+        }
+
+        public static function getAllProfessors($db) {
+            $sql = " SELECT * FROM users WHERE rol = 'professor' ";
+            $subjects = mysqli_query($db, $sql);
+            $result = array();
+
+            if ($subjects && mysqli_num_rows($subjects) >= 1) {
+                $result = $subjects;
+            }
+
+            return $result;
+        }
+        
+        public static function getAllStudents($db) {
+            $sql = " SELECT * FROM users WHERE rol = 'student' ";
+            $subjects = mysqli_query($db, $sql);
+            $result = array();
+
+            if ($subjects && mysqli_num_rows($subjects) >= 1) {
+                $result = $subjects;
+            }
+
+            return $result;
+        }
+
+        public static function getAllAdmins($db) {
+            $sql = " SELECT * FROM users WHERE rol = 'admin' ";
             $subjects = mysqli_query($db, $sql);
             $result = array();
 

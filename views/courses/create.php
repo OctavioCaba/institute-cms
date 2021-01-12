@@ -15,15 +15,15 @@
             <h1>AÑADIR CARRERA</h1>
 
             <div class="form">
-                <form action="../controllers/CourseController.php" method="post">
+                <form action="../../controllers/CourseController.php" method="post">
                     <div class="form-field">
                         <label for="name">Nombre de la carrera</label>
                         <input type="text" name="name" placeholder="Nombre carrera" required>
                     </div>
 
                     <div class="form-field">
-                        <label for="descrption">Descripción de la carrera</label>
-                        <input type="text" name="descrption" placeholder="Descripción carrera" required>
+                        <label for="description">Descripción de la carrera</label>
+                        <input type="text" name="description" placeholder="Descripción carrera" required>
                     </div>
 
                     <input class="btn-submit" type="submit" value="Añadir">

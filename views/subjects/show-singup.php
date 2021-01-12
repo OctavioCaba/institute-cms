@@ -1,10 +1,9 @@
 <?php
-    require_once '../../helpers.php';
     require_once '../../includes/header.php';
-    require_once '../../config/db.php';
+
     Utils::isLogin();
     $db = Database::connect();
-    $courses = Utils::getAllCourses($db);
+    $subjects = Utils::getSubjectsById($db, $_SESSION['login']->id);
 ?>
 
 <div class="container">
@@ -14,17 +13,17 @@
         ?>
 
         <div class="content">
-            <h1>Carreras</h1>
+            <h1>MIS MATERIAS</h1>
             <div class="table">
                 <table>
                     <tr>
-                        <?php foreach ($courses as $course) : ?>
-                            <th><?=$course['name']?></th>
+                        <?php foreach ($subjects as $subject) : ?>
+                            <th><?=$subject['name']?></th>
                         <?php endforeach; ?>
                     </tr>
                     <tr>
-                        <?php foreach ($courses as $course) : ?>
-                            <td><?=$course['description']?></td>
+                        <?php foreach ($subjects as $subject) : ?>
+                            <td><?=$subject['description']?></td>
                         <?php endforeach; ?>
                     </tr>
                 </table>

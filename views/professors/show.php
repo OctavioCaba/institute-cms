@@ -1,10 +1,9 @@
 <?php
-    require_once '../../helpers.php';
     require_once '../../includes/header.php';
-    require_once '../../config/db.php';
+
     Utils::isLogin();
     $db = Database::connect();
-    $courses = Utils::getAllCourses($db);
+    $professors = Utils::getAllProfessors($db);
 ?>
 
 <div class="container">
@@ -14,17 +13,17 @@
         ?>
 
         <div class="content">
-            <h1>Carreras</h1>
+            <h1>PROFESORES</h1>
             <div class="table">
                 <table>
                     <tr>
-                        <?php foreach ($courses as $course) : ?>
-                            <th><?=$course['name']?></th>
+                        <?php foreach ($professors as $professor) : ?>
+                            <th><?=$professor['name'] . ' ' . $professor['surname']?></th>
                         <?php endforeach; ?>
                     </tr>
                     <tr>
-                        <?php foreach ($courses as $course) : ?>
-                            <td><?=$course['description']?></td>
+                        <?php foreach ($professors as $professor) : ?>
+                            <td><?=$professor['email']?></td>
                         <?php endforeach; ?>
                     </tr>
                 </table>

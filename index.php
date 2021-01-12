@@ -1,5 +1,4 @@
 <?php
-    require_once 'config/db.php';
     require_once 'includes/header.php';
     if (!isset($_SESSION)) {
         session_start();

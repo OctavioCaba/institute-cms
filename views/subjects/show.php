@@ -1,10 +1,9 @@
 <?php
-    require_once '../../helpers.php';
     require_once '../../includes/header.php';
-    require_once '../../config/db.php';
+
     Utils::isLogin();
     $db = Database::connect();
-    $subjects = Utils::getSubjectsById($db);
+    $subjects = Utils::getAllSubjects($db);
 ?>
 
 <div class="container">
@@ -14,7 +13,7 @@
         ?>
 
         <div class="content">
-            <h1>Materias</h1>
+            <h1>MATERIAS</h1>
             <div class="table">
                 <table>
                     <tr>

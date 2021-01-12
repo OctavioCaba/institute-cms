@@ -1,3 +1,8 @@
+<?php
+    require_once 'C:\xampp\htdocs\institute-cms\helpers.php';
+    require_once 'C:\xampp\htdocs\institute-cms\config\db.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
