@@ -1,6 +1,8 @@
 <?php
     require_once '../../includes/header.php';
-
+    if (!isset($_SESSION)) {
+        session_start();
+    }
     Utils::isLogin();
     $db = Database::connect();
     $professors = Utils::getAllProfessors($db);
@@ -14,20 +16,18 @@
 
         <div class="content">
             <h1>PROFESORES</h1>
-            <div class="table">
-                <table>
-                    <tr>
-                        <?php foreach ($professors as $professor) : ?>
-                            <th><?=$professor['name'] . ' ' . $professor['surname']?></th>
-                        <?php endforeach; ?>
+            <table class="table">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Correo electrónico</th>
+                </tr>
+                <?php foreach ($professors as $professor) : ?>
+                    <tr class="<?=$_SESSION['login']->id == $professor['id'] ? 'its_me' : ''?>">
+                        <td><?=$professor['name'] . ' ' . $professor['surname']?></td>
+                        <td><?=$professor['email']?></td>
                     </tr>
-                    <tr>
-                        <?php foreach ($professors as $professor) : ?>
-                            <td><?=$professor['email']?></td>
-                        <?php endforeach; ?>
-                    </tr>
-                </table>
-            </div>
+                <?php endforeach; ?>
+            </table>
         </div>
     </div>
 </div>

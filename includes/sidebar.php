@@ -13,9 +13,13 @@
     <div class="submenu">
         <?php if($_SESSION['login']->rol == 'admin'): ?>
             <a href="/institute-cms/views/subjects/create.php">Añadir nueva</a>
+            <a href="/institute-cms/views/subjects/singup-professor.php">Asginar profesor</a>
+        <?php endif; ?>
+        <?php if($_SESSION['login']->rol == 'professor'): ?>
+            <a href="/institute-cms/views/subjects/show-singup.php">Ver mis materias</a>
         <?php endif; ?>
         <?php if($_SESSION['login']->rol == 'student'): ?>
-            <a href="/institute-cms/views/subjects/singup.php">Inscribirse</a>
+            <a href="/institute-cms/views/subjects/singup-student.php">Inscribirse</a>
             <a href="/institute-cms/views/subjects/show-singup.php">Ver mis materias</a>
         <?php endif; ?>
         <a href="/institute-cms/views/subjects/show.php">Ver todas</a>

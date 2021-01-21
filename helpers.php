@@ -34,10 +34,24 @@
             return $result;
         }
         
-        public static function getSubjectsById($db, $id) {
+        public static function getStudentSubjectsById($db, $id) {
             $sql = " SELECT * FROM subjects su ";
             $sql .= "INNER JOIN student_in_subject st_su ON st_su.subject_id = su.id ";
             $sql .= "WHERE st_su.student_id = $id ";
+            $subjects = mysqli_query($db, $sql);
+            $result = array();
+
+            if ($subjects && mysqli_num_rows($subjects) >= 1) {
+                $result = $subjects;
+            }
+
+            return $result;
+        }
+
+        public static function getProfessorSubjectsById($db, $id) {
+            $sql = " SELECT * FROM subjects su ";
+            $sql .= "INNER JOIN professor_in_subject pr_su ON pr_su.subject_id = su.id ";
+            $sql .= "WHERE pr_su.professor_id = $id ";
             $subjects = mysqli_query($db, $sql);
             $result = array();
 

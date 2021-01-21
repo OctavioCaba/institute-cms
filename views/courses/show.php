@@ -15,20 +15,18 @@
 
         <div class="content">
             <h1>Carreras</h1>
-            <div class="table">
-                <table>
+            <table class="table">
+                <tr>
+                    <th>Carrera</th>
+                    <th>Descripción</th>
+                </tr>
+                <?php foreach ($courses as $course) : ?>
                     <tr>
-                        <?php foreach ($courses as $course) : ?>
-                            <th><?=$course['name']?></th>
-                        <?php endforeach; ?>
+                        <td><?=$course['name']?></td>
+                        <td><?=$course['description']?></td>
                     </tr>
-                    <tr>
-                        <?php foreach ($courses as $course) : ?>
-                            <td><?=$course['description']?></td>
-                        <?php endforeach; ?>
-                    </tr>
-                </table>
-            </div>
+                <?php endforeach; ?>
+            </table>
         </div>
     </div>
 </div>

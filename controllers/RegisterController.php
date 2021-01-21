@@ -23,10 +23,17 @@
 
         $save = $user->save();
         if ($save) {
-            $_SESSION['login'] = $user->fetch_object();
+            if (!isset($_SESSION)) {
+                session_start();
+            }
+            $login = $user->login();
+            $_SESSION['login'] = $login;
             header('Location: http://localhost/institute-cms/index.php');
         } else {
-            var_dump($save);
+            echo '<pre>';
+            print_r($save);
+            echo '</pre>';
+            die();
         }
 
     } else {

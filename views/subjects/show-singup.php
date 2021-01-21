@@ -3,7 +3,8 @@
 
     Utils::isLogin();
     $db = Database::connect();
-    $subjects = Utils::getSubjectsById($db, $_SESSION['login']->id);
+    $student_subjects = Utils::getStudentSubjectsById($db, $_SESSION['login']->id);
+    $professor_subjects = Utils::getProfessorSubjectsById($db, $_SESSION['login']->id);
 ?>
 
 <div class="container">
@@ -14,20 +15,27 @@
 
         <div class="content">
             <h1>MIS MATERIAS</h1>
-            <div class="table">
-                <table>
-                    <tr>
-                        <?php foreach ($subjects as $subject) : ?>
-                            <th><?=$subject['name']?></th>
-                        <?php endforeach; ?>
-                    </tr>
-                    <tr>
-                        <?php foreach ($subjects as $subject) : ?>
+            <table class="table">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                </tr>
+                <?php if($_SESSION['login']->rol == 'student'): ?>
+                    <?php foreach ($student_subjects as $subject) : ?>
+                        <tr>
+                            <td><?=$subject['name']?></td>
                             <td><?=$subject['description']?></td>
-                        <?php endforeach; ?>
-                    </tr>
-                </table>
-            </div>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php elseif($_SESSION['login']->rol == 'professor'): ?>
+                    <?php foreach ($professor_subjects as $subject) : ?>
+                        <tr>
+                            <td><?=$subject['name']?></td>
+                            <td><?=$subject['description']?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </table>
         </div>
     </div>
 </div>

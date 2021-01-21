@@ -34,25 +34,6 @@
     </div>
 </div>
 
-<script type="text/javascript">
-    const pass1 = document.getElementById('pass1');
-    const pass2 = document.getElementById('pass2');
-    const btnSubmit = document.getElementById('btn-submit');
-
-
-    function passChecker() {
-        if (pass2.value == pass1.value) {
-            console.log(pass2.value);
-            pass2.style.background = "#d1d1d1";
-            btnSubmit.disabled = false;
-        } else {
-            console.log(pass2.value);
-            pass2.style.background = "red";
-            btnSubmit.disabled = true;
-        }
-    }
-</script>
-
 <?php
     require_once '../../includes/footer.php';
 ?>

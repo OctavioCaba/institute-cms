@@ -14,20 +14,18 @@
 
         <div class="content">
             <h1>MATERIAS</h1>
-            <div class="table">
-                <table>
-                    <tr>
-                        <?php foreach ($subjects as $subject) : ?>
-                            <th><?=$subject['name']?></th>
-                        <?php endforeach; ?>
-                    </tr>
-                    <tr>
-                        <?php foreach ($subjects as $subject) : ?>
+            <table class="table">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                </tr>
+                    <?php foreach ($subjects as $subject) : ?>
+                        <tr>
+                            <td><?=$subject['name']?></td>
                             <td><?=$subject['description']?></td>
-                        <?php endforeach; ?>
-                    </tr>
-                </table>
-            </div>
+                        </tr>
+                    <?php endforeach; ?>
+            </table>
         </div>
     </div>
 </div>

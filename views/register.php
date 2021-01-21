@@ -42,7 +42,7 @@
                 </div>
             </div>
 
-            <input class="btn-submit btn-submit-register" type="submit" id="btn-submit" value="Iniciar Sesión">
+            <input class="btn-submit btn-submit-register" type="submit" id="btn-submit" value="Registrarse">
         </form>
         <a class="btn-register" href="login.php">Iniciar sesión</a>
     </div>
